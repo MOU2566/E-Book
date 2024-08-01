@@ -23,6 +23,7 @@
          display: flex;
          justify-content: center;
          align-items: center;
+         overflow: hidden;
       }
       .logo {
          position: absolute;
@@ -52,25 +53,22 @@
          width: 100%;
          height: 100%;
          z-index: 10;
-         overflow: hidden;
+         background: rgba(255, 255, 255, 0.8); /* ใช้พื้นหลังที่โปร่งใส */
+         display: flex;
+         justify-content: center;
+         align-items: center;
       }
       .no-js #loader-wrapper {
          display: none;
       }
       #loader {
          display: block;
-         position: relative;
-         left: 50%;
-         top: 50%;
          width: 150px;
          height: 150px;
-         margin: -75px 0 0 -75px;
          border-radius: 50%;
          border: 3px solid transparent;
          border-top-color: #16a085;
-         -webkit-animation: spin 1.7s linear infinite;
          animation: spin 1.7s linear infinite;
-         z-index: 11;
       }
       #loader:before {
          content: "";
@@ -82,7 +80,6 @@
          border-radius: 50%;
          border: 3px solid transparent;
          border-top-color: #e74c3c;
-         -webkit-animation: spin-reverse 0.6s linear infinite;
          animation: spin-reverse 0.6s linear infinite;
       }
       #loader:after {
@@ -95,20 +92,11 @@
          border-radius: 50%;
          border: 3px solid transparent;
          border-top-color: #f9c922;
-         -webkit-animation: spin 1s linear infinite;
          animation: spin 1s linear infinite;
-      }
-      @-webkit-keyframes spin {
-         0% { -webkit-transform: rotate(0deg); }
-         100% { -webkit-transform: rotate(360deg); }
       }
       @keyframes spin {
          0% { transform: rotate(0deg); }
          100% { transform: rotate(360deg); }
-      }
-      @-webkit-keyframes spin-reverse {
-         0% { -webkit-transform: rotate(0deg); }
-         100% { -webkit-transform: rotate(-360deg); }
       }
       @keyframes spin-reverse {
          0% { transform: rotate(0deg); }
@@ -128,7 +116,6 @@
       #loader-wrapper .loader-section.section-right {
          right: 0;
       }
-      /* Loaded styles */
       .loaded #loader-wrapper .loader-section.section-left {
          transform: translateX(-100%);
          transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -161,8 +148,7 @@
    </div>
    <script>
       window.addEventListener('load', function() {
-         var loaderWrapper = document.getElementById('loader-wrapper');
-         loaderWrapper.classList.add('loaded');
+         document.getElementById('loader-wrapper').classList.add('loaded');
       });
    </script>
 </body>
